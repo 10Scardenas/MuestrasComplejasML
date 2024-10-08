@@ -1,0 +1,25 @@
+def crean_nn_regresion(norm):
+    model = Sequential ([
+        norm,
+        Dense(32, activation='softmax', kernel_regularizer=L1L2(l1=0.0, l2=0.1 )),
+        Dense(64, activation='softmax', kernel_regularizer=L1L2(l1=0.0, l2=0.1 )),
+        Dense(32, activation='relu', kernel_regularizer=L1L2(l1=0.0, l2=0.1 )),
+        Dense(1)
+    ])
+    model.compile(optimizer=Adam(0.002), loss='mean_squared_error', metrics=[tf.keras.metrics.MeanSquaredError()])
+    return model
+
+
+def crean_nn_regresion(norm):
+    model = Sequential ([
+        norm,
+        Dense(16, activation='relu'),
+        Dense(32, activation='softmax'),
+        Dense(64, activation='softmax'),
+        Dense(32, activation='relu'),
+        Dense(16, activation='relu'),
+        Dense(1)
+    ])
+    model.compile(optimizer=Adam(learning_rate=0.001), loss='mean_squared_error', metrics=[tf.keras.metrics.MeanSquaredError()])
+    return model
+
